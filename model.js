@@ -42,6 +42,7 @@ exports.TA = sequelize.define("tas", {
 exports.Entry = sequelize.define("entry", {
     "user_id": Sequelize.STRING,
     "name": Sequelize.STRING,
+    "location": Sequelize.STRING,
     "semester": Sequelize.STRING,
     "entry_time": Sequelize.DATE,
     "help_time": Sequelize.DATE,

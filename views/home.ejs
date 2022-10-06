@@ -73,9 +73,13 @@
     </select>
     <label for="topic">What would you like help with?</label>
   </div>
-  <div class="input-field inline col l10 m10 s12">
+  <div class="input-field inline col l8 m8 s12">
       <textarea id="question" name="question" type="text" minlength=3 maxlength=255 data-length="255" required class="materialize-textarea"></textarea>
       <label for="question">Question</label>
+  </div>
+  <div class="input-field inline col l2 m2 s12">
+      <textarea id="location" name="location" type="text" minlength=3 maxlength=255 data-length="255" required class="materialize-textarea"></textarea>
+      <label for="location">Location</label>
   </div>
   <div class="input-field inline col l2 m2 s12 center-btn">
     <button class="waves-effect waves-light btn cyan" name="action" value="ADD">Enter</button>
@@ -174,6 +178,7 @@ $(document).ready(function() {
         topic_name: entry.topic ? entry.topic.name : "other",
         ta_full_name: entry.TA ? entry.TA.full_name : "",
         question: entry.question,
+        location: entry.location,
         update_requested: entry.update_requested
     }).replace(/<\//g, "<\\/"); %>));
     <%_ if (entry.status == 1) { %>
@@ -199,6 +204,7 @@ $(document).ready(function() {
         topic_name: entry.topic ? entry.topic.name : "other",
         ta_full_name: entry.TA ? entry.TA.full_name : "",
         question: entry.question,
+        location: entry.location,
         cooldown_override: entry.cooldown_override,
         update_requested: entry.update_requested
   }).replace(/<\//g, "<\\/"); %>));

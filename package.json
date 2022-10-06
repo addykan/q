@@ -1,9 +1,9 @@
 {
   "name": "queue15122",
   "version": "1.0.0",
-  "description": "An office hours queue for Carnegie Mellon's Principles of Imperative Computation class.",
+  "description": "An office hours queue for Carnegie Mellon's Fundamentals of Programming and Computer Science class.",
   "main": "index.js",
-  "author": "Jonathan Burns <jaburns@andrew.cmu.edu>",
+  "author": "Adhvik Kanagala <akanagal@andrew.cmu.edu>",
   "dependencies": {
     "bluebird": "^3.7.2",
     "body-parser": "^1.19.1",

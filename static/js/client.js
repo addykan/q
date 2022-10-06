@@ -14,6 +14,8 @@ const entryHtml = `
                 <input type='hidden' class='id-input' name='entry_id'>
                 <div class='entry-item entry-container entry-text'>
                     <div class='entry-item entry-name'></div>
+                    <div class='entry-item entry-location'></div>
+                    <div class='entry-item entry-spacer'></div>
                     <div class='entry-item entry-question'></div>
                 </div>
                 <div class='entry-item entry-spacer'></div>
@@ -152,7 +154,7 @@ function buildTAEntry(entry) {
     elt.find(".id-input").val(entry.id);
     elt.find(".entry-name").html(`${entry.name} (${entry.user_id})`);
     elt.find(".entry-question").html(`${entry.cooldown_override ? '\u21BB ' : ''}[${entry.topic_name}] ${entry.question.replace(/</g, "&lt;")}`);
-
+    elt.find(".entry-location").html(`${entry.location}`);
     if (entry.status == 1 && ta_id == entry.ta_id) {
         elt.find(".cancel-button").removeClass("hide");
         elt.find(".done-button").removeClass("hide");
@@ -184,7 +186,7 @@ function buildMyEntry(entry) {
     elt.find(".id-input").val(entry.id);
     elt.find(".entry-name").html(`${entry.name} (${entry.user_id})`);
     elt.find(".entry-question").html(`[${entry.topic_name}] ${entry.question.replace(/</g, "&lt;")}`);
-
+    elt.find(".entry-location").html(`${entry.location}`);
     if (entry.status == 1) {
         elt.find(".helping-text").text(entry.ta_full_name + " is helping");
     } else {

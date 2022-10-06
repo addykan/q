@@ -114,15 +114,16 @@ function post_add(req, res) {
     var user_id = req.body.user_id.toLowerCase();
     var topic_id = req.body.topic_id;
     var question = req.body.question;
+    var location = req.body.location;
     var cooldown_override = req.body.cooldown_override;
     var topic = null;
     new Promise(function(resolve, reject) {
         // A valid user ID is between 3 and 8 alphanumeric characters, and
         // if the user is logged in (and isn't a TA), then it must match
         // the account they're logged in with.
-        if (!p.is_logged_in(req)) {
-            throw new Error("You must be logged in to ask a question");
-        }
+        // if (!p.is_logged_in(req)) {
+        //     throw new Error("You must be logged in to ask a question");
+        // }
         if (!user_id || user_id.length < 3 || user_id.length > 8
                 || !RegExp("^[A-Za-z0-9]*$").test(user_id)
                 || (p.is_logged_in(req) && !p.is_ta(req) && req.session.user_id != user_id)) {
@@ -134,6 +135,9 @@ function post_add(req, res) {
         }
         if (question.length < 2) {
             throw new Error("Invalid Question");
+        }
+        if (location.length < 2) {
+            throw new Error("Invalid Location");
         }
         resolve();
     }).then(function() {
@@ -208,6 +212,7 @@ function post_add(req, res) {
             session_id: (p.is_ta(req) || p.is_admin(req)) ? null : req.session.id,
             topic_id: topic_id,
             question: question,
+            location: location,
             cooldown_override: (cooldown_override ? 1 : 0),
             update_requested: false,
         });
