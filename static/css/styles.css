@@ -282,8 +282,8 @@ input.flatpickr-input[type=text] {
 }
 
 input.flatpickr-input[type=text]:focus {
-    border-bottom: 1px solid #26a69a;
-    box-shadow: 0 1px 0 0 #26a69a;
+    border-bottom: 1px solid #005e80;
+    box-shadow: 0 1px 0 0 #005e80;
 }
 
 .fake-td button.btn-flat {
