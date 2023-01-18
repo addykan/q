@@ -87,7 +87,7 @@ $(document).ready(function() {
             });
             $(this).addClass("fix-confirming red white-text")
                 .removeClass("grey lighten-2 grey-text text-darken-3")
-                .text("Ask to Fix");
+                .text("Freeze");
             event.preventDefault();
         }
     });
@@ -169,7 +169,7 @@ function buildTAEntry(entry) {
                 elt.find(".help-button")
                     .removeClass("waves-light btn blue")
                     .addClass("waves btn-flat grey lighten-3 grey-text text-darken-2");
-                elt.find(".helping-text").text("Student is updating question");
+                elt.find(".helping-text").text("Student is frozen");
             } else {
                 elt.find(".fix-question-button").removeClass("hide");
             }
@@ -370,7 +370,7 @@ socket.on("request-update", function(message) {
                         .removeClass("waves-light btn blue")
                         .addClass("waves btn-flat grey lighten-3 grey-text text-darken-2");
                 }
-                $(item).find(".helping-text").text("Student is updating question");
+                $(item).find(".helping-text").text("Student is frozen");
             }
         }
     });
